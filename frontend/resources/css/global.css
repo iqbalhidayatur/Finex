@@ -15,6 +15,7 @@
     --text-primary: #000000;
     --text-secondary: #7b7b7b;
     --text-dark: #3f3f3f;
+    --text-light: #ffffff;
 
     --icon-primary: #000000;
     --icon-secondary: #7b7b7b;
@@ -26,4 +27,141 @@
     padding: 0;
     margin: 0;
     font-family: "Montserrat";
+}
+
+/* text */
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+/* Content Container */
+
+.main-content {
+    min-height: 90vh;
+    width: 79%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1%;
+}
+
+/* Content */
+
+.main {
+    width: 100%;
+    height: auto;
+    background-color: var(--bg-secondary);
+    border-radius: 25px;
+    padding: 1%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+
+aside {
+    display: flex;
+    min-height: 90vh;
+    width: 20%;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    height: 100px;
+}
+
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    border-radius: 100%;
+}
+
+.profile-picture i {
+    color: var(--icon-light);
+    font-size: 1.6rem;
+}
+
+.name {
+    line-height: 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.logout {
+    color: var(--red);
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    height: 80px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 1%;
+    background-color: var(--bg-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header i {
+    color: var(--icon-dark);
+}
+
+header a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.btn-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-ai {
+    background-color: var(--primary);
+    width: 150px;
+    height: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
 }

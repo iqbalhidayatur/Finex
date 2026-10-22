@@ -1,0 +1,126 @@
+*,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    justify-content: space-between;
+    align-items: start;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 25px;
+    padding: 2%;
+    line-height: 0;
+    min-height: 150px;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-weight: 500;
+}
+
+.card p {
+    color: var(--text-secondary);
+}
+
+.dashboard {
+    padding: 0 2%;
+    line-height: 0;
+    margin-top: 10px;
+}
+
+.dashboard-head h2 {
+    font-weight: 600;
+}
+
+.dashboard-head p {
+    color: var(--text-secondary);
+}
+
+.btn-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--icon-light);
+
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add {
+    background-color: var(--primary);
+}
+
+.btn-out {
+    background-color: var(--red);
+}
+
+.balance {
+    line-height: 0;
+    height: 150px;
+    border-radius: 25px;
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.balance p {
+    color: var(--text-light);
+}
+
+.balance h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.savings {
+    max-width: 400px;
+}
+
+.savings p {
+    color: var(--text-secondary);
+}
+
+.target p {
+    margin-top: 5px;
+    color: var(--red);
+}
+
+.recent-act {
+    max-width: 400px;
+}
+
+.recent-act i {
+    font-size: 2rem;
+}
+
+.wallet {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.wallet-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 4%;
+}
+
+.wallet-card h1 {
+    font-weight: 700;
+}
