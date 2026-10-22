@@ -86,6 +86,15 @@ section {
     font-weight: 700;
 }
 
+.value a {
+    text-decoration: none;
+    color: var(--icon-light);
+}
+
+.value i {
+    font-size: 2rem;
+}
+
 .savings {
     max-width: 400px;
 }

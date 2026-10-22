@@ -37,7 +37,10 @@
                         <div class="balance card w-100">
                             <h2>Balances</h2>
                             <p>Check your overall balances here</p>
-                            <h1>2.000.000.000</h1>
+                            <div class="value d-flex flex-row justify-content-between align-items-center">
+                                <h1>2.000.000.000</h1>
+                                <a href=""><i class="bi bi-eye-fill"></i></a>
+                            </div>
                         </div>
 
                         <div class="savings card w-100 d-flex flex-column">
