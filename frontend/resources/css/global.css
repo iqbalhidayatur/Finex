@@ -85,6 +85,33 @@ aside {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 14px 12px 12px 12px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.menu a.active {
+    color: var(--primary);
+}
+
+.menu a.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background-color: var(--primary);
+    border-radius: 0 4px 4px 0;
+}
+
 .profile {
     height: 100px;
 }
