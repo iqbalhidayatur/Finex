@@ -133,3 +133,168 @@ section {
 .wallet-card h1 {
     font-weight: 700;
 }
+
+/* Income & Outcome Modal */
+.income-modal-dialog {
+    max-width: 720px;
+    width: calc(100% - 32px);
+}
+
+.income-modal-wrapper {
+    width: 100%;
+}
+
+.popup-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--bg-card);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.popup-container .modal-body {
+    padding: 24px;
+    min-height: 0;
+    max-width: none;
+}
+
+.income-form {
+    flex: 1;
+    min-width: 0;
+}
+
+.income-form h2 {
+    font-weight: 600;
+}
+
+.income-form p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Input */
+.income-form input:not([type="file"]),
+.income-form .form-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.income-form input:focus,
+.income-form .form-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(77, 143, 79, 0.12);
+}
+
+/* File Upload */
+.file-section {
+    flex: 0 0 280px;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-zone {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed #ccc;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 16px;
+    margin: 0;
+}
+
+.drop-zone i {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.drop-zone p {
+    margin: 12px 0 4px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.drop-zone span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.outcome-drop-zone i {
+    color: var(--red);
+}
+
+/* Submit Button */
+.popup-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease;
+}
+
+.btn-submit:hover {
+    opacity: 0.85;
+}
+
+.btn-submit-income {
+    background-color: var(--primary);
+}
+
+.btn-submit-outcome {
+    background-color: var(--red);
+}
+
+/* Modal Backdrop */
+.modal-backdrop.show {
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .popup-container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .file-section {
+        flex: auto;
+    }
+
+    .drop-zone {
+        aspect-ratio: auto;
+        min-height: 180px;
+    }
+
+    .popup-actions .btn-submit {
+        width: 100%;
+    }
+}

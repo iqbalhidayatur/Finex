@@ -28,8 +28,8 @@
                             <p>See your finance resume here</p>
                         </div>
                         <div class="dashboard-btn d-flex flex-row gap-2">
-                            <div class="btn-dashboard btn-add"><i class="bi bi-plus"></i></div>
-                            <div class="btn-dashboard btn-out"><i class="bi bi-dash"></i></div>
+                            <div class="btn-dashboard btn-add" data-bs-toggle="modal" data-bs-target="#incomeModal" role="button" tabindex="0"><i class="bi bi-plus"></i></div>
+                            <div class="btn-dashboard btn-out" data-bs-toggle="modal" data-bs-target="#outcomeModal" role="button" tabindex="0"><i class="bi bi-dash"></i></div>
                         </div>
                     </div>
 
@@ -101,6 +101,191 @@
             </div>
         </section>
     </main>
+
+    <!-- Income Popup -->
+    <div class="modal fade" id="incomeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered income-modal-dialog">
+            <div class="income-modal-wrapper">
+
+                <form id="incomeForm">
+                    <!-- Income Card -->
+                    <div class="modal-content popup-container">
+
+                        <!-- Form Income -->
+                        <div class="modal-body income-form">
+                            <h2>Add Income</h2>
+                            <p>Insert your income in the form below</p>
+
+                            <div class="income d-flex flex-column gap-2">
+                                <label for="amount">Amount</label>
+                                <input
+                                    type="number"
+                                    name="amount"
+                                    id="amount"
+                                    placeholder="Enter amount"
+                                    min="1"
+                                    required
+                                >
+
+                                <label for="description">Description</label>
+                                <input
+                                    type="text"
+                                    name="description"
+                                    id="description"
+                                    placeholder="Enter description"
+                                    required
+                                >
+
+                                <label for="incomeWallet">Wallet</label>
+                                <select
+                                    class="form-select"
+                                    id="incomeWallet"
+                                    name="wallet"
+                                    required
+                                >
+                                    <option value="" selected disabled>
+                                        Select Wallet
+                                    </option>
+                                    <option value="wallet1">Wallet 1</option>
+                                    <option value="wallet2">Wallet 2</option>
+                                    <option value="wallet3">Wallet 3</option>
+                                    <option value="wallet4">Wallet 4</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Drop File -->
+                        <div class="modal-body file-section">
+                            <label for="incomeFile" class="drop-zone">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <p>Drop your file here</p>
+                                <span>or click to browse</span>
+                                <input
+                                    type="file"
+                                    name="file"
+                                    id="incomeFile"
+                                    accept="image/*,.pdf"
+                                    hidden
+                                >
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit di luar card -->
+                    <div class="popup-actions">
+                        <button type="submit" class="btn-submit btn-submit-income">
+                            <i class="bi bi-plus-lg"></i>
+                            Add Income
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Outcome Popup -->
+    <div class="modal fade" id="outcomeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered income-modal-dialog">
+            <div class="income-modal-wrapper">
+
+                <form id="outcomeForm">
+                    <!-- Outcome Card -->
+                    <div class="modal-content popup-container">
+
+                        <!-- Form Outcome -->
+                        <div class="modal-body income-form">
+                            <h2>Add Outcome</h2>
+                            <p>Insert your outcome in the form below</p>
+
+                            <div class="outcome d-flex flex-column gap-2">
+                                <label for="outcomeAmount">Amount</label>
+                                <input
+                                    type="number"
+                                    name="amount"
+                                    id="outcomeAmount"
+                                    placeholder="Enter amount"
+                                    min="1"
+                                    required
+                                >
+
+                                <label for="outcomeDescription">Description</label>
+                                <input
+                                    type="text"
+                                    name="description"
+                                    id="outcomeDescription"
+                                    placeholder="Enter description"
+                                    required
+                                >
+
+                                <label for="outcomeCategory">Category</label>
+                                <select
+                                    class="form-select"
+                                    id="outcomeCategory"
+                                    name="category"
+                                    required
+                                >
+                                    <option value="" selected disabled>
+                                        Select Category
+                                    </option>
+                                    <option value="food">Food</option>
+                                    <option value="transport">Transportation</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="bills">Bills</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="other">Other</option>
+                                </select>
+
+                                <label for="outcomeWallet">Wallet</label>
+                                <select
+                                    class="form-select"
+                                    id="outcomeWallet"
+                                    name="wallet"
+                                    required
+                                >
+                                    <option value="" selected disabled>
+                                        Select Wallet
+                                    </option>
+                                    <option value="wallet1">Wallet 1</option>
+                                    <option value="wallet2">Wallet 2</option>
+                                    <option value="wallet3">Wallet 3</option>
+                                    <option value="wallet4">Wallet 4</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Drop File -->
+                        <div class="modal-body file-section">
+                            <label for="outcomeFile" class="drop-zone outcome-drop-zone">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <p>Drop your file here</p>
+                                <span>or click to browse</span>
+                                <input
+                                    type="file"
+                                    name="file"
+                                    id="outcomeFile"
+                                    accept="image/*,.pdf"
+                                    hidden
+                                >
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit di luar card -->
+                    <div class="popup-actions">
+                        <button type="submit" class="btn-submit btn-submit-outcome">
+                            <i class="bi bi-dash-lg"></i>
+                            Add Outcome
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
