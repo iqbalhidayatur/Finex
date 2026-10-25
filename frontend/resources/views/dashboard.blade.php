@@ -53,19 +53,59 @@
                         </div>
                     </div>
 
-                    <div class="d-flex flex-row gap-2">
-                        <div class="card monthly-stat w-100">
-                            <h2>Monthly Statistic</h2>
-                            <p>See your statistic based on latest data here</p>
+                    <div class="d-flex flex-row gap-2 h-100">
+                        <div class="chart-card d-flex h-100 flex-column">
+                            <div class="chart-header">
+                                <div>
+                                    <h2>Transaction Overview</h2>
+                                    <p>Income vs Outcome</p>
+                                </div>
+
+                                <select id="chartRange">
+                                    <option value="7">7 Hari Terakhir</option>
+                                    <option value="30" selected>30 Hari Terakhir</option>
+                                    <option value="month">Bulan Ini</option>
+                                    <option value="all">Semua Data</option>
+                                </select>
+                            </div>
+
+                            <div class="chart-container">
+                                <canvas id="transactionChart"></canvas>
+                            </div>
                         </div>
 
-                        <div class="card recent-act d-flex w-100">
+                        <div class="card recent-act d-flex w-100 h-100">
                             <div class="d-flex justify-content-between align-items-center w-100">
-                                <div>
-                                    <h2>Recent Activity</h2>
-                                    <p>See your recent activity here</p>
+                                
+                                <div class="recent-activity d-flex h-100 flex-column">
+                                    <div class="d-flex flex-row justify-content-between align-items-center">
+                                        <h2>Recent Activity</h2>
+                                        <a href="/report">
+                                            <i class="bi bi-arrow-right-circle"></i>
+                                        </a>
+                                    </div>
+
+                                    @forelse ($activities as $activity)
+                                        <div class="activity-item">
+                                            <div class="activity-info">
+                                                <h4>{{ $activity['description'] }}</h4>
+
+                                                <p>
+                                                    {{ \Carbon\Carbon::parse($activity['date'])->format('d M Y') }}
+                                                    · {{ ucfirst($activity['category']) }}
+                                                </p>
+                                            </div>
+
+                                            <span class="activity-amount {{ $activity['type'] }}">
+                                                {{ $activity['type'] === 'income' ? '+' : '-' }}
+                                                Rp {{ number_format($activity['amount'], 0, ',', '.') }}
+                                            </span>
+                                        </div>
+                                    @empty
+                                        <p>Belum ada aktivitas.</p>
+                                    @endforelse
                                 </div>
-                                <i class="bi bi-arrow-right-circle"></i>
+
                             </div>
                         </div>
                     </div>
@@ -287,6 +327,12 @@
         </div>
     </div>
 
+    <script id="transactionData" type="application/json">
+        @json($transactions)
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @vite('resources/js/dashboard.js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -22,6 +22,19 @@ Route::get('/management', function () {
     return view('management');
 })->name('management');
 
-Route::get('/analytics', function () {
-    return view('analytics');
-})->name('analytics');
+Route::get('/analytics', [
+    \App\Http\Controllers\DashboardController::class,
+    'analytics'
+])->name('analytics');
+
+
+use App\Http\Controllers\ReportController;
+
+Route::get('/report', [ReportController::class, 'index'])
+    ->name('report');
+
+
+use App\Http\Controllers\DashboardController;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');

@@ -49,71 +49,57 @@
                         </div>
                     </div>
 
+                    {{-- table --}}
+
                     <div class="d-flex p-3">
-                        <div class="table-container">
-                            <table class="transaction-table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Amount</th>
-                                        <th>Description</th>
-                                        <th>Date</th>
-                                        <th>Type</th>
-                                    </tr>
-                                </thead>
-    
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Rp500.000</td>
-                                        <td>Gaji bulanan</td>
-                                        <td>23/10/2026</td>
-                                        <td>
-                                            <span class="type income">Income</span>
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Rp75.000</td>
-                                        <td>Makan siang</td>
-                                        <td>23/10/2026</td>
-                                        <td>
-                                            <span class="type outcome">Outcome</span>
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Rp150.000</td>
-                                        <td>Freelance project</td>
-                                        <td>22/10/2026</td>
-                                        <td>
-                                            <span class="type income">Income</span>
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Rp50.000</td>
-                                        <td>Transportasi</td>
-                                        <td>22/10/2026</td>
-                                        <td>
-                                            <span class="type outcome">Outcome</span>
-                                        </td>
-                                    </tr>
-    
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Rp200.000</td>
-                                        <td>Belanja bulanan</td>
-                                        <td>21/10/2026</td>
-                                        <td>
-                                            <span class="type outcome">Outcome</span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        
+                        <div class="transaction-table">
+                            <h2>Recent Transactions</h2>
+
+                            <div class="table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @forelse ($transactions as $transaction)
+                                            <tr>
+                                                <td>{{ $transaction['id'] }}</td>
+
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($transaction['date'])->format('d M Y') }}
+                                                </td>
+
+                                                <td>{{ $transaction['description'] }}</td>
+
+                                                <td>{{ ucwords($transaction['category']) }}</td>
+
+                                                <td>
+                                                    <span class="badge {{ $transaction['type'] === 'income' ? 'income' : 'outcome' }}">
+                                                        {{ ucfirst($transaction['type']) }}
+                                                    </span>
+                                                </td>
+
+                                                <td class="{{ $transaction['type'] === 'income' ? 'amount-income' : 'amount-outcome' }}">
+                                                    {{ $transaction['type'] === 'income' ? '+' : '-' }}Rp{{ number_format($transaction['amount'], 0, ',', '.') }}
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="6">Belum ada transaksi.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 

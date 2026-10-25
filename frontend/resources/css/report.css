@@ -32,62 +32,76 @@ input {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    background-color: var(--bg-card);
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+/* Table */
 
 .transaction-table {
     width: 100%;
+    padding: 24px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.transaction-table h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.transaction-table table {
+    width: 100%;
     border-collapse: collapse;
-    text-align: left;
+    white-space: nowrap;
 }
 
 .transaction-table th,
 .transaction-table td {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--bg-secondary);
-    font-size: 0.85rem;
-    white-space: nowrap;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #eeeeee);
+    font-size: 14px;
 }
 
 .transaction-table th {
-    background-color: var(--bg-secondary);
     color: var(--text-secondary);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .transaction-table td {
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
-.transaction-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.transaction-table tbody tr:hover {
-    background-color: var(--bg-primary);
-}
-
-.type {
+.badge {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 12px;
+}
+
+.badge.income {
+    background: #e6f7ed;
+    color: #16834a;
+}
+
+.badge.outcome {
+    background: #fdeaea;
+    color: #d93636;
+}
+
+.amount-income {
+    color: #16834a !important;
     font-weight: 600;
 }
 
-.type.income {
-    background-color: #e5f5e6;
-    color: #2e7d32;
-}
-
-.type.outcome {
-    background-color: #fde8e8;
-    color: #c62828;
+.amount-outcome {
+    color: #d93636 !important;
+    font-weight: 600;
 }
 
 /* Filter Modal */

@@ -1,0 +1,126 @@
+
+.chart-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.chart-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.chart-header p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.chart-header select {
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: var(--bg-card);
+    color: inherit;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+
+@media (max-width: 600px) {
+    .chart-card {
+        padding: 16px;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .chart-container {
+        height: 260px;
+    }
+}
+
+/* Transaction Distribution */
+
+#donutType {
+    padding: 10px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: var(--bg-card);
+    color: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.donut-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.donut-chart-wrapper {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+.donut-summary h3 {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.donut-summary p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    .donut-container {
+        flex-direction: column;
+    }
+
+    .donut-chart-wrapper {
+        width: 100%;
+        max-width: 260px;
+    }
+}
+
+/* Top Spending Chart */
+.top-spending-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.top-spending-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    margin-top: 20px;
+}
+
+.top-spending-card .chart-header h3 {
+    margin-bottom: 6px;
+}
+
+.top-spending-card .chart-header p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
