@@ -49,6 +49,28 @@
                         </div>
                     </div>
 
+                    @if (session('success'))
+                        <div class="alert alert-success mx-3">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger mx-3">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger mx-3">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     {{-- table --}}
 
                     <div class="d-flex p-3">
@@ -66,6 +88,7 @@
                                             <th>Category</th>
                                             <th>Type</th>
                                             <th>Amount</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
 
@@ -90,6 +113,22 @@
 
                                                 <td class="{{ $transaction['type'] === 'income' ? 'amount-income' : 'amount-outcome' }}">
                                                     {{ $transaction['type'] === 'income' ? '+' : '-' }}Rp{{ number_format($transaction['amount'], 0, ',', '.') }}
+                                                </td>
+                                                <td>
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-sm btn-outline-primary"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#editTransactionModal"
+                                                        data-id="{{ $transaction['id'] }}"
+                                                        data-date="{{ $transaction['date'] }}"
+                                                        data-description="{{ $transaction['description'] }}"
+                                                        data-category="{{ $transaction['category'] }}"
+                                                        data-type="{{ $transaction['type'] }}"
+                                                        data-amount="{{ $transaction['amount'] }}"
+                                                    >
+                                                        <i class="bi bi-pencil-square"></i> Edit
+                                                    </button>
                                                 </td>
                                             </tr>
                                         @empty
@@ -186,7 +225,87 @@
         </div>
     </div>
 
+    <div class="modal fade" id="editTransactionModal" tabindex="-1"
+        aria-labelledby="editTransactionModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content filter-modal">
+
+                <div class="modal-header">
+                    <div>
+                        <h2 class="modal-title" id="editTransactionModalLabel">
+                            Edit Transaction
+                        </h2>
+                        <p class="mb-0">Update your transaction details</p>
+                    </div>
+
+                    <button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="editTransactionForm" method="POST">
+
+                        @csrf
+                        @method('PUT')
+
+                        <div class="filter-group">
+                            <label for="edit_date">Date</label>
+                            <input type="date" name="date" id="edit_date"
+                                class="form-control" required>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="edit_description">Description</label>
+                            <input type="text" name="description"
+                                id="edit_description" class="form-control"
+                                maxlength="255" required>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="edit_category">Category</label>
+                            <input type="text" name="category"
+                                id="edit_category" class="form-control"
+                                maxlength="100" required>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="edit_type">Type</label>
+                            <select name="type" id="edit_type"
+                                class="form-select" required>
+                                <option value="income">Income</option>
+                                <option value="outcome">Outcome</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="edit_amount">Amount (Rp)</label>
+                            <input type="number" name="amount"
+                                id="edit_amount" class="form-control"
+                                min="0" step="1" required>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button type="button" class="btn-reset"
+                                data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+
+                            <button type="submit" class="btn-apply">
+                                Save Changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    @vite('resources/js/report.js')
 </body>
 
 </html>

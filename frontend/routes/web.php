@@ -33,6 +33,8 @@ use App\Http\Controllers\ReportController;
 Route::get('/report', [ReportController::class, 'index'])
     ->name('report');
 
+Route::put('/report/{id}', [ReportController::class, 'update'])
+    ->name('report.update');
 
 use App\Http\Controllers\DashboardController;
 
