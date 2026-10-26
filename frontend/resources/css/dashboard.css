@@ -71,7 +71,7 @@ section {
 
 .balance {
     line-height: 0;
-    height: 150px;
+    height: 200px;
     border-radius: 25px;
     background-color: var(--primary);
     color: var(--text-light);
@@ -95,12 +95,102 @@ section {
     font-size: 2rem;
 }
 
+
+/* Saving Goals */
+
 .savings {
-    max-width: 400px;
+    gap: 12px;
+    line-height: 1.4;
+    min-width: 400px;
+    height: 200px;
 }
 
-.savings p {
+.savings h2,
+.saving-goals-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.savings p,
+.saving-goals-section p {
+    line-height: 1.5;
+}
+
+.savings progress {
+    width: 100%;
+    height: 12px;
+    accent-color: var(--primary);
+}
+
+.savings .target p {
+    margin: 0;
     color: var(--text-secondary);
+}
+
+.saving-goals-section {
+    padding: 0 2%;
+}
+
+.saving-goals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.saving-goal-card {
+    min-width: 0;
+    height: auto;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+.saving-goal-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+
+.saving-goal-card p {
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.saving-goal-amount {
+    margin-top: 16px;
+}
+
+.saving-goal-amount span,
+.saving-goal-amount p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.saving-goal-amount h2 {
+    margin: 8px 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.saving-goal-progress {
+    height: 10px;
+    border-radius: 20px;
+}
+
+.saving-goal-progress .progress-bar {
+    background-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .saving-goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .saving-goals-section {
+        padding: 0;
+    }
 }
 
 .target p {

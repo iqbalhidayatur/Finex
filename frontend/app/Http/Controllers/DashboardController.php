@@ -6,17 +6,24 @@ use App\Support\DummyTransactions;
 
 class DashboardController extends Controller
 {
+
     public function index()
     {
         $transactions = \App\Support\DummyTransactions::all();
 
         $activities = collect($transactions)
-            ->sortByDesc('date')
             ->sortByDesc('id')
             ->take(5);
 
-        return view('dashboard', compact('activities', 'transactions'));
+        $savingGoals = \App\Models\SavingGoal::latest()->get();
+
+        return view('dashboard', compact(
+            'activities',
+            'transactions',
+            'savingGoals'
+        ));
     }
+
 
     public function analytics()
     {

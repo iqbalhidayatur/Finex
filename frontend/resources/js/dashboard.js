@@ -142,3 +142,78 @@ if (chartCanvas && rangeSelect) {
 
     renderChart();
 }
+
+
+const savingGoalModal = document.getElementById("savingGoalModal");
+
+if (savingGoalModal) {
+    savingGoalModal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const form = document.getElementById("savingGoalForm");
+        const method = document.getElementById("savingGoalMethod");
+        const isEdit = button?.dataset.id;
+
+        form.reset();
+        method.replaceChildren();
+
+        document.getElementById("savingGoalTitle").textContent = isEdit
+            ? "Edit Saving Goal"
+            : "Create Saving Goal";
+
+        document.getElementById("goalSubmit").textContent = isEdit
+            ? "Simpan Perubahan"
+            : "Simpan Goal";
+
+        if (isEdit) {
+            form.action = `/saving-goals/${button.dataset.id}`;
+
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "_method";
+            input.value = "PUT";
+            method.appendChild(input);
+
+            document.getElementById("goalName").value =
+                button.dataset.name || "";
+
+            document.getElementById("goalDescription").value =
+                button.dataset.description || "";
+
+            document.getElementById("goalTarget").value =
+                button.dataset.target || "1";
+
+            document.getElementById("goalSaved").value =
+                button.dataset.saved || "0";
+
+            document.getElementById("goalDate").value =
+                button.dataset.date || "";
+        } else {
+            form.action = form.dataset.storeUrl;
+            document.getElementById("goalSaved").value = "0";
+        }
+    });
+}
+
+const addSavingsModal = document.getElementById("addSavingsModal");
+
+if (addSavingsModal) {
+    addSavingsModal.addEventListener("show.bs.modal", function (event) {
+        const button = event.relatedTarget;
+        const form = document.getElementById("addSavingsForm");
+
+        form.reset();
+        form.action = `/saving-goals/${button.dataset.id}/add`;
+
+        document.getElementById("addSavingsGoalName").textContent =
+            button.dataset.name || "Saving Goal";
+
+        const remaining = Number(button.dataset.remaining || 0);
+
+        document.getElementById("addSavingsRemaining").textContent =
+            `Rp ${new Intl.NumberFormat("id-ID").format(remaining)}`;
+
+        const amountInput = document.getElementById("savingAmount");
+        amountInput.max = remaining;
+        amountInput.value = "";
+    });
+}

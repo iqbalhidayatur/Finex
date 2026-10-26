@@ -40,3 +40,27 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+
+use App\Http\Controllers\WalletController;
+
+Route::get('/management', [WalletController::class, 'index'])
+    ->name('management');
+
+Route::resource('wallets', WalletController::class);
+
+use App\Http\Controllers\SavingGoalController;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
+
+Route::post('/saving-goals', [SavingGoalController::class, 'store'])
+    ->name('saving-goals.store');
+
+Route::put('/saving-goals/{savingGoal}', [SavingGoalController::class, 'update'])
+    ->name('saving-goals.update');
+
+Route::delete('/saving-goals/{savingGoal}', [SavingGoalController::class, 'destroy'])
+    ->name('saving-goals.destroy');
+
+Route::post('/saving-goals/{savingGoal}/add', [SavingGoalController::class, 'addSavings'])
+    ->name('saving-goals.add');
