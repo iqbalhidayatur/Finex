@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/css/global.css')
+    @vite('resources/css/ai-assistant.css')
     @vite('resources/css/management.css')
 </head>
 
@@ -252,6 +253,7 @@
 
     </main>
 
+    @vite('resources/js/ai-assistant.js')
     @vite('resources/js/management.js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

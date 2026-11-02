@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     @vite('resources/css/global.css')
+    @vite('resources/css/ai-assistant.css')
     @vite('resources/css/dashboard.css')
 </head>
 <body>
@@ -615,6 +616,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @vite('resources/js/dashboard.js')
+    @vite('resources/js/ai-assistant.js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

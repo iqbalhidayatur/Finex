@@ -38,6 +38,7 @@ button {
 /* text */
 h1 {
     font-size: 2rem;
+    font-weight: 600;
 }
 
 h2 {
@@ -226,6 +227,14 @@ header a {
     background-color: var(--primary);
     width: 150px;
     height: 50px;
+    border: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.btn-ai i {
+    color: var(--text-light);
 }

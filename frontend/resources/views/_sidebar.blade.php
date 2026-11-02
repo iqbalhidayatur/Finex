@@ -28,6 +28,11 @@
             Management
         </a>
 
+        <a href="{{ url('/costcalculator') }}"
+            class="{{ request()->is('costcalculator') ? 'active' : '' }}">
+            Cost Calculator
+        </a>
+
         <a href="{{ url('/analytics') }}"
             class="{{ request()->is('analytics') ? 'active' : '' }}">
             Analytics

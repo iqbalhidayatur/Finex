@@ -22,6 +22,10 @@ Route::get('/management', function () {
     return view('management');
 })->name('management');
 
+Route::get('/costcalculator', function () {
+    return view('costcalculator');
+})->name('costcalculator');
+
 Route::get('/analytics', [
     \App\Http\Controllers\DashboardController::class,
     'analytics'
