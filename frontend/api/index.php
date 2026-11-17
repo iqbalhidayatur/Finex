@@ -1,6 +1,5 @@
 <?php
 
-// Siapkan direktori writable di /tmp untuk Vercel
 $dirs = [
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache',
@@ -14,8 +13,17 @@ foreach ($dirs as $dir) {
     }
 }
 
-if (!file_exists('/tmp/database.sqlite')) {
+$isNewDb = !file_exists('/tmp/database.sqlite');
+if ($isNewDb) {
     touch('/tmp/database.sqlite');
 }
 
-require __DIR__ . '/../public/index.php';
+require __DIR__ . '/../vendor/autoload.php';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
+
+if ($isNewDb) {
+    $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+    $kernel->call('migrate', ['--force' => true]);
+}
+
+$app->handleRequest(Illuminate\Http\Request::capture());
