@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('budget', 15, 2)->default(0);
-            $table->string('category')->default('Monthly Expenses');
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }
