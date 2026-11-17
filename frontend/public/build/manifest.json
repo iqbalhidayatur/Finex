@@ -1,31 +1,21 @@
 {
-  "_fonts-C9MNnjVw.css": {
-    "file": "assets/fonts-C9MNnjVw.css",
-    "src": "_fonts-C9MNnjVw.css"
+  "resources/css/ai-assistant.css": {
+    "file": "assets/ai-assistant-C_ejZFB1.css",
+    "name": "ai-assistant",
+    "names": [
+      "ai-assistant.css"
+    ],
+    "src": "resources/css/ai-assistant.css",
+    "isEntry": true
   },
-  "_instrument-sans-400-normal-D1W7dsQl.woff": {
-    "file": "assets/instrument-sans-400-normal-D1W7dsQl.woff",
-    "src": "_instrument-sans-400-normal-D1W7dsQl.woff"
-  },
-  "_instrument-sans-400-normal-DRC__1Mx.woff2": {
-    "file": "assets/instrument-sans-400-normal-DRC__1Mx.woff2",
-    "src": "_instrument-sans-400-normal-DRC__1Mx.woff2"
-  },
-  "_instrument-sans-500-normal-Dk9ku72i.woff2": {
-    "file": "assets/instrument-sans-500-normal-Dk9ku72i.woff2",
-    "src": "_instrument-sans-500-normal-Dk9ku72i.woff2"
-  },
-  "_instrument-sans-500-normal-Z6ESRlEs.woff": {
-    "file": "assets/instrument-sans-500-normal-Z6ESRlEs.woff",
-    "src": "_instrument-sans-500-normal-Z6ESRlEs.woff"
-  },
-  "_instrument-sans-600-normal-B7fBEWYG.woff2": {
-    "file": "assets/instrument-sans-600-normal-B7fBEWYG.woff2",
-    "src": "_instrument-sans-600-normal-B7fBEWYG.woff2"
-  },
-  "_instrument-sans-600-normal-B9e8oLYv.woff": {
-    "file": "assets/instrument-sans-600-normal-B9e8oLYv.woff",
-    "src": "_instrument-sans-600-normal-B9e8oLYv.woff"
+  "resources/css/analytics.css": {
+    "file": "assets/analytics-g0mH4wJ5.css",
+    "name": "analytics",
+    "names": [
+      "analytics.css"
+    ],
+    "src": "resources/css/analytics.css",
+    "isEntry": true
   },
   "resources/css/app.css": {
     "file": "assets/app-DQkwlBTU.css",
@@ -36,10 +26,91 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/costcalculator.css": {
+    "file": "assets/costcalculator-CsMBfWJT.css",
+    "name": "costcalculator",
+    "names": [
+      "costcalculator.css"
+    ],
+    "src": "resources/css/costcalculator.css",
+    "isEntry": true
+  },
+  "resources/css/dashboard.css": {
+    "file": "assets/dashboard-Dm2jNMyy.css",
+    "name": "dashboard",
+    "names": [
+      "dashboard.css"
+    ],
+    "src": "resources/css/dashboard.css",
+    "isEntry": true
+  },
+  "resources/css/global.css": {
+    "file": "assets/global-Cc6qWAfz.css",
+    "name": "global",
+    "names": [
+      "global.css"
+    ],
+    "src": "resources/css/global.css",
+    "isEntry": true
+  },
+  "resources/css/management.css": {
+    "file": "assets/management-CSSiw5Su.css",
+    "name": "management",
+    "names": [
+      "management.css"
+    ],
+    "src": "resources/css/management.css",
+    "isEntry": true
+  },
+  "resources/css/report.css": {
+    "file": "assets/report-0zDq7vpp.css",
+    "name": "report",
+    "names": [
+      "report.css"
+    ],
+    "src": "resources/css/report.css",
+    "isEntry": true
+  },
+  "resources/js/ai-assistant.js": {
+    "file": "assets/ai-assistant-Bc-hfc0Y.js",
+    "name": "ai-assistant",
+    "src": "resources/js/ai-assistant.js",
+    "isEntry": true
+  },
+  "resources/js/analytics.js": {
+    "file": "assets/analytics-Bxk9ksWH.js",
+    "name": "analytics",
+    "src": "resources/js/analytics.js",
+    "isEntry": true
+  },
   "resources/js/app.js": {
     "file": "assets/app-BvRk9kiK.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/costcalculator.js": {
+    "file": "assets/costcalculator-C866KY6j.js",
+    "name": "costcalculator",
+    "src": "resources/js/costcalculator.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard.js": {
+    "file": "assets/dashboard-Cke3ngKj.js",
+    "name": "dashboard",
+    "src": "resources/js/dashboard.js",
+    "isEntry": true
+  },
+  "resources/js/management.js": {
+    "file": "assets/management-BCO9s0xg.js",
+    "name": "management",
+    "src": "resources/js/management.js",
+    "isEntry": true
+  },
+  "resources/js/report.js": {
+    "file": "assets/report-D89eBqJ0.js",
+    "name": "report",
+    "src": "resources/js/report.js",
     "isEntry": true
   }
 }
