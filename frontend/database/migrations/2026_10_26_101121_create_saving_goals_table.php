@@ -1,48 +1,26 @@
 <?php
 
-namespace App\Models;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Database\Eloquent\Model;
-
-class SavingGoal extends Model
+return new class extends Migration
 {
-    protected $fillable = [
-        'name',
-        'description',
-        'target_amount',
-        'saved_amount',
-        'target_date',
-    ];
-
-    protected function casts(): array
+    public function up(): void
     {
-        return [
-            'target_amount' => 'decimal:2',
-            'saved_amount' => 'decimal:2',
-            'target_date' => 'date',
-        ];
+        Schema::create('saving_goals', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->decimal('target_amount', 15, 2)->default(0);
+            $table->decimal('saved_amount', 15, 2)->default(0);
+            $table->date('target_date')->nullable();
+            $table->timestamps();
+        });
     }
 
-    public function getProgressAttribute(): float
+    public function down(): void
     {
-        if ((float) $this->target_amount <= 0) {
-            return 0;
-        }
-
-        return min(
-            100,
-            round(
-                ((float) $this->saved_amount / (float) $this->target_amount) * 100,
-                1
-            )
-        );
+        Schema::dropIfExists('saving_goals');
     }
-
-    public function getRemainingAmountAttribute(): float
-    {
-        return max(
-            0,
-            (float) $this->target_amount - (float) $this->saved_amount
-        );
-    }
-}
+};
