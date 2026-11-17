@@ -26,8 +26,8 @@
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Password">
                     <p class="pt-3 d-flex w-100 justify-content-end"><a href="">Forgot Password?</a></p>
-                    <button class="signin">Sign in</button>
-                    <button class="google"><i class="bi bi-google"></i> Sign in with google</button>
+                    <button class="signin" onclick="window.location.href='{{ url('/dashboard') }}'">Sign in</button>
+                    <button class="google" onclick="window.location.href='{{ url('/dashboard') }}'"><i class="bi bi-google"></i> Sign in with google</button>
                 </div>
                 <p><a href="/register">Dont have an Account? Sign up</a></p>
             </div>
